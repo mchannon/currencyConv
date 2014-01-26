@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>66E426E7-F18B-4FF0-A3C6-3AD857ACE682</string>
+	<key>IDESourceControlProjectName</key>
+	<string>currencyConv</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>8B29D48E-87FD-4CA0-856F-40A40CA58BD9</key>
+		<string>https://github.com/mchannon/currencyConv.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>currencyConv.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>60FB8F75-0A2D-4221-825B-51D290A1F77D</key>
+		<string>../../../../Desktop/currencyConv</string>
+		<key>8B29D48E-87FD-4CA0-856F-40A40CA58BD9</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/mchannon/currencyConv.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>8B29D48E-87FD-4CA0-856F-40A40CA58BD9</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>8B29D48E-87FD-4CA0-856F-40A40CA58BD9</string>
+			<key>IDESourceControlWCCName</key>
+			<string>currencyConv</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>60FB8F75-0A2D-4221-825B-51D290A1F77D</string>
+			<key>IDESourceControlWCCName</key>
+			<string>currencyConv</string>
+		</dict>
+	</array>
+</dict>
+</plist>
