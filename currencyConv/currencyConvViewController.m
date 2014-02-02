@@ -12,7 +12,10 @@
 
 @interface currencyConvViewController ()
 
+
 @end
+
+NSArray *rates;
 
 @implementation currencyConvViewController
 
@@ -20,7 +23,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    
+
+    rates = [ NSArray arrayWithObjects:nwf(1),nwf(0.73),nwf(102.31),nwf(6.05),nwf(1.11),nwf(0.90), nil];
     
     arrayNo = [[NSMutableArray alloc] init];
     [ arrayNo addObject:@"USD"];
@@ -48,7 +52,6 @@
 
 - (IBAction)Convert:(id)sender {
     
-    NSArray *rates = [ NSArray arrayWithObjects:nwf(1),nwf(0.73),nwf(102.31),nwf(6.05),nwf(1.11),nwf(0.90), nil];
 
     float oldRate = [[ rates objectAtIndex:[ pickerView selectedRowInComponent:0] ] floatValue];
     
@@ -120,6 +123,42 @@
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component;
 {
     return [arrayNo objectAtIndex:row];
+}
+
+- (IBAction)LoadRates:(id)sender {
+    
+    NSString *urlAsString = [NSString stringWithFormat:@"http://finance.yahoo.com/webservice/v1/symbols/allcurrencies/quote?format=json"];
+    NSURL *url = [[NSURL alloc] initWithString:urlAsString];
+    NSLog(@"%@", urlAsString);
+    
+    [NSURLConnection sendAsynchronousRequest:[[NSURLRequest alloc] initWithURL:url] queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+        
+        if (error)
+            NSLog( @"error");
+        else
+            [ self ParseData: data ];
+    }];
+}
+
+- (void)ParseData:(NSData *)data
+{
+    NSError *error;
+    
+    NSDictionary* json = [NSJSONSerialization
+                          JSONObjectWithData:data
+                          options:kNilOptions
+                          error:&error];
+    
+    NSArray *m = [[ json objectForKey:@"list"] objectForKey:@"resources"];
+    
+    rates = [NSArray arrayWithObjects:
+             [[[ m[84] objectForKey:@"resource"] objectForKey:@"fields" ] objectForKey:@"price" ],
+             [[[ m[63] objectForKey:@"resource"] objectForKey:@"fields" ] objectForKey:@"price" ],
+             [[[ m[93] objectForKey:@"resource"] objectForKey:@"fields" ] objectForKey:@"price" ],
+             [[[ m[62] objectForKey:@"resource"] objectForKey:@"fields" ] objectForKey:@"price" ],
+             [[[ m[24] objectForKey:@"resource"] objectForKey:@"fields" ] objectForKey:@"price" ],
+             [[[ m[94] objectForKey:@"resource"] objectForKey:@"fields" ] objectForKey:@"price" ],
+             nil];
 }
 
 @end
